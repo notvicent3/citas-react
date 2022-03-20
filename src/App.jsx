@@ -1,19 +1,48 @@
-import Header from "./components/Header"
+import { useState, useEffect } from 'react'
 import Formulario from "./components/Formulario"
+import Header from "./components/Header"
 import ListadoPacientes from "./components/ListadoPacientes"
+
 function App() {
 
+  const [pacientes, setPacientes] = useState([]);
+  {/*EN ESTE CASO LO USAREMOS PARA GESTIÓN DE LOS DATOS DE 1 PACIENTE */ }
+  const [paciente, setPaciente] = useState({});
+
+  useEffect(() => {
+    const obtenerLS = () => {
+      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+      setPacientes(pacientesLS)
+    }
+    obtenerLS();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('pacientes', JSON.stringify(pacientes));
+  }, [pacientes])
+
+  const eliminarPaciente = id => {
+    const pacientesActualizados = pacientes.filter(paciente => paciente.id !== id);
+    setPacientes(pacientesActualizados)
+  }
 
   return (
-    /*Class es una palabra reservada de Js, pero estamos utilizando "html" , existen conflictos, por lo que usaremos className */
-    <div className="container mx-auto mt-20 " >
+    <div className="container mx-auto mt-20">
       <Header />
-      {/*Utilizo md:flex para evitar que los componentes se sobrepongan uno sobre el otro. El componente salta a la siguiente línea*/}
-      <div className="mt-12 md:flex">
-        <Formulario />
-        <ListadoPacientes />
-      </div>
 
+      <div className="mt-12 md:flex">
+        <Formulario
+          pacientes={pacientes}
+          setPacientes={setPacientes}
+          paciente={paciente}
+          setPaciente={setPaciente}
+        />
+        <ListadoPacientes
+          pacientes={pacientes}
+          setPaciente={setPaciente}
+          eliminarPaciente={eliminarPaciente}
+        />
+      </div>
 
     </div>
   )
