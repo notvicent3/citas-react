@@ -9,17 +9,22 @@ function App() {
   {/*EN ESTE CASO LO USAREMOS PARA GESTIÓN DE LOS DATOS DE 1 PACIENTE */ }
   const [paciente, setPaciente] = useState({});
 
+
+  {/*Haremos que se guarden los datos que introducimos en el formulario */ }
   useEffect(() => {
     const obtenerLS = () => {
+      {/*Si no hay nada en LocalStorage, le asigno un array vacío */ }
       const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
       setPacientes(pacientesLS)
     }
     obtenerLS();
-  }, []);
+  }, []); {/*Si la dependencia está vacía,sólo se ejecutará 1 vez */ }
 
   useEffect(() => {
+    {/*JSON.stringify va a convertir lo que le pasemos a string */ }
     localStorage.setItem('pacientes', JSON.stringify(pacientes));
   }, [pacientes])
+
 
   const eliminarPaciente = id => {
     const pacientesActualizados = pacientes.filter(paciente => paciente.id !== id);

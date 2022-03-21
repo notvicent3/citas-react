@@ -13,7 +13,11 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     const [error, setError] = useState(false)
 
     useEffect(() => {
+        {/*Este código se ejecutará SÓLO cuando haya algo en pacientes . Detecta que el Objeto está vacío o no */ }
         if (Object.keys(paciente).length > 0) {
+
+            {/*Para que no se mezcle, tenemos que usar el objeto paciente*/ }
+
             setNombre(paciente.nombre)
             setPropietario(paciente.propietario)
             setEmail(paciente.email)
@@ -21,9 +25,11 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
             setSintomas(paciente.sintomas)
         }
     }, [paciente])
-
-
-
+    {/*Se ejecuta la función, sólo cuando paciente cambie de valor 
+       useEffect( () => {
+       
+       },[dependencias])
+*/ }
 
     const generarId = () => {
         const random = Math.random().toString(36).substr(2);
@@ -57,17 +63,23 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
             fecha,
             sintomas
         }
-
+        {/*Si tiene un ID, no es nuevo paciente, por lo que podrás editar, en caso contrario, hay que asignarle un id */ }
         if (paciente.id) {
-            // Editando el Registro
+            // Editando el Registro del paciente
             objetoPaciente.id = paciente.id
-            const pacientesActualizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState)
+            {/*Recorremos los elementos de paciente, para detectar si se han producido cambios
+             Si son iguales (no ha habido modificaciones) devuelvo el ObjetoPaciente (el previo)
+             SI NO, devuelvo pacienteState (con los datos actualizados del paciente)
 
+             --pacienteState sólo es una variable local y temporal.
+        */}
+            const pacientesActualizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState)
+            {/*Actualizamos los datos */ }
             setPacientes(pacientesActualizados)
             setPaciente({})
 
         } else {
-            // Nuevo registro
+            // Nuevo registro de paciente, le asigno un id y lo guardo en SetPaciente
             objetoPaciente.id = generarId();
             setPacientes([...pacientes, objetoPaciente]);
         }
@@ -182,7 +194,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
                     type="submit"
                     className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
                     value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}
-                />
+                /> {/*Si tenemos un paciente activo el botón de agregar, cambia a editar */}
             </form>
         </div>
     )
