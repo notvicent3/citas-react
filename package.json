@@ -1,7 +1,7 @@
 {
   "name": "citas-react",
   "private": true,
-    "homepage": "https://agcg1991.github.io/citas-react/",
+    "homepage": "https://github.com/AGCG1991/AGCG1991.github.io/control-gastos",
   "version": "0.0.0",
   "scripts": {
     "predeploy" : "npm run build",
