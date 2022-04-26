@@ -16,4 +16,5 @@ Link: https://agcg1991.github.io/citas-react/
 # Instalación: 
 
 
-> git clone https://github.com/AGCG1991/citas-react.git 
+
+` git clone https://github.com/AGCG1991/citas-react.git`
