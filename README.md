@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/AGCG1991/citas-react/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AGCG1991/citas-react/actions/workflows/pages/pages-build-deployment)
+
 # Gestión de citas para una clínica veterinaria :
 
  La aplicación web, está dedicada a la gestion de citas para pacientes. El usuario, mediante el formulario, debe de introducir los siguientes datos:
