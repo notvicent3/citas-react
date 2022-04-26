@@ -30,4 +30,5 @@ Este proyecto ha sido desarrollado utilizando una librería de React, conocida c
 Una vez instalada las dependencias, podemos arrancar nuestro proyecto
 
 `npm run dev `
+
 Desde el navegador introducimos " http://localhost:3000/ " para poder visualizar el proyecto en local.
