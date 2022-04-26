@@ -1,4 +1,4 @@
-# ** Gestión de citas para una clínica veterinaria **
+# Gestión de citas para una clínica veterinaria 
 
  La aplicación web, está dedicada a la gestion de citas para pacientes. El usuario, mediante el formulario, debe de introducir los siguientes datos:
  
