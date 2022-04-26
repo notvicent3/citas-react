@@ -11,6 +11,11 @@
 
 Al añadir un paciente, se creará tarjetas donde se contengan los datos, los cuales pueden ser editados o eliminados. En esta versión no se ha implementado un backend con uan base de datos donde guardar los datos, por los que esto no son persistentes, únicamente se hace uso de LocalStorage para que el usuario pueda hacer pruebas de la apliación.
 
+
+![Imagen aplicación citas ](https://raw.githubusercontent.com/AGCG1991/AGCG1991.github.io/master/img/AdministradorPacientes1.PNG)
+
+
+
 Link: https://agcg1991.github.io/citas-react/
 
 # Instalación: 
