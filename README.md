@@ -18,7 +18,7 @@ Al añadir un paciente, se creará tarjetas donde se contengan los datos, los cu
 
 
 
-Link: https://agcg1991.github.io/citas-react/
+Link: https://aitorgus.github.io/citas-react/
 
 # Instalación: 
 
