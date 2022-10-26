@@ -24,7 +24,7 @@ Link: https://aitorgus.github.io/citas-react/
 
 En primer lugar debes de clonar tu proyecto en local  
 
-` git clone https://github.com/AGCG1991/citas-react.git`
+` git clone https://github.com/aitorgus/citas-react.git`
 
 Seguidamente accedemos al proyecto 
 
